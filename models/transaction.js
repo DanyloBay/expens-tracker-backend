@@ -18,7 +18,7 @@ const transactionSchema = new Schema(
       type: String,
       // 16-10-2009
       match: validDate,
-      required: true,
+      required: false,
     },
   },
   { versionKey: false, timestamps: true }
@@ -31,7 +31,7 @@ const Transaction = model("transaction", transactionSchema);
 const addSchema = Joi.object({
   text: Joi.string().required(),
   amount: Joi.number().required(),
-  date: Joi.string().required(),
+  date: Joi.string(),
 });
 
 const schemas = {
